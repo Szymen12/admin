@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app:
+    container_name: Admin.APP
+    build:
+      dockerfile: ./docker/app/Dockerfile
+      context: ${PWD}
+    image: admin.node
+    working_dir: /code
+    ports:
+      - "8080:3000"
+    links:
+      - mysql
+    command: "npm run start"
+  mysql:
+    container_name: Admin.MYSQL
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./mysql:/var/lib/mysql
+
