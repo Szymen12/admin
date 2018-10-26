@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app/server.js",
+    "start": "pm2-runtime start app/server.js --watch",
+    "build": "npm run build-ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Szymon Kozub <szymon.kozu@gmail.com>",
