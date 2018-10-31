@@ -3,8 +3,8 @@ import Db       from './db';
 
 const SequelizeMock = require('sequelize-mock');
 
-describe('Hello function', () => {
-    it('should return hello world', () => {
+describe('Database', () => {
+    it('Should contain sequelize instance', () => {
         let sequelize = new SequelizeMock();
         sequelize.key = 'working';
 
