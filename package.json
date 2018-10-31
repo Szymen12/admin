@@ -4,16 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2-runtime start app/server.js --watch",
-    "build": "npm run build-ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "pm2-runtime start dist/server/server.js --watch",
+    "build": "node_modules/.bin/tsc",
+    "test": "node_modules/.bin/mocha -r ts-node/register app/**/*.spec.ts"
   },
   "author": "Szymon Kozub <szymon.kozu@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.32",
+    "@types/mocha": "^5.2.5",
+    "@types/sequelize": "^4.27.30",
+    "@types/sinon": "^5.0.5",
+    "chai": "^4.2.0",
     "koa": "^2.6.1",
+    "mocha": "^5.2.0",
     "mysql2": "^1.6.1",
     "pm2": "^3.2.2",
-    "sequelize": "^4.41.0"
+    "reflect-metadata": "^0.1.12",
+    "sequelize": "^4.41.0",
+    "sequelize-mock": "^0.10.2",
+    "sequelize-typescript": "^0.6.6",
+    "sinon": "^7.1.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.3"
   }
 }
